@@ -58,7 +58,7 @@ def launch_setup(context, *args, **kwargs):
     use_composition = LaunchConfiguration("rsp_use_composition", default="true")
     imu_from_descr = LaunchConfiguration("imu_from_descr", default="false")
     publish_tf_from_calibration = LaunchConfiguration(
-        "publish_tf_from_calibration", default="false"
+        "publish_tf_from_calibration", default="true"
     )
     override_cam_model = LaunchConfiguration("override_cam_model", default="false")
     params_file = LaunchConfiguration("params_file")
@@ -297,7 +297,7 @@ def generate_launch_description():
             "params_file",
             default_value=os.path.join(depthai_prefix, "config", "camera.yaml"),
         ),
-        DeclareLaunchArgument("use_rviz", default_value="false"),
+        DeclareLaunchArgument("use_rviz", default_value="true"),
         DeclareLaunchArgument(
             "rviz_config",
             default_value=os.path.join(depthai_prefix, "config", "rviz", "rgbd.rviz"),
@@ -305,7 +305,7 @@ def generate_launch_description():
         DeclareLaunchArgument("rsp_use_composition", default_value="true"),
         DeclareLaunchArgument(
             "publish_tf_from_calibration",
-            default_value="false",
+            default_value="true",
             description="Enables TF publishing from camera calibration file.",
         ),
         DeclareLaunchArgument(
@@ -327,7 +327,7 @@ def generate_launch_description():
             description="Enables compatibility with RealSense nodes.",
         ),
         DeclareLaunchArgument("rectify_rgb", default_value="true"),
-        DeclareLaunchArgument("pointcloud.enable", default_value="false"),
+        DeclareLaunchArgument("pointcloud.enable", default_value="true"),
         DeclareLaunchArgument("enable_color", default_value="true"),
         DeclareLaunchArgument("enable_depth", default_value="true"),
         DeclareLaunchArgument("enable_infra1", default_value="false"),
